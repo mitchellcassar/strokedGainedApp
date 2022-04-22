@@ -1,0 +1,79 @@
+{%extends "base.html"%}
+{%block title%}Home Page{%endblock%}
+{%block pageBody%}
+<div class="container text-center p-3">
+<p class="lead">
+    <strong>Strokes Gained is a golf statistic used to determine the quality of a
+    given shot. It compares the expected number of strokes from the ball's
+    location pre-shot to the expected number of strokes post-shot.</strong>
+  </p>
+  <p>
+    <small><em>For a more detailed description of strokes gained, consult
+    <a
+      href="https://www.pgatour.com/news/2016/05/31/strokes-gained-defined.html"
+      target="_blank"
+    >
+      pgatour.com</em></small></a
+    >
+  </p>
+</div>
+<div class="container p-3 text-center">
+  <p>
+    <h4>Use the following tool to calculate the strokes gained for any golf shot.</h4>
+    <p>
+      <small><em>NOTE: For putts, enter the distance in feet as a whole number. If the shot went in the hole, put 0 as the remaining distance and 'hole' as the finishing lie</em></small>
+    </p>
+  </p>
+</div>
+<div class="container p-3">
+  <form name="data" action="/results" method="post">
+    <div class="mb-3">
+    <label for="startDistance" class="form-label">Starting Distance From Hole</label>
+    <input type="number" class="form-control" min="0" max="600" name="startDistance" value="0" />
+    </div>
+    <label for="startLie">Starting Lie</label>
+    <select name="startLie" id="startLie">
+      <option value="t">Tee Shot</option>
+      <option value="f">Fairway</option>
+      <option value="r">Rough</option>
+      <option value="s">Sand</option>
+      <option value="g">Green</option>
+      <option value="h">Hole</option>
+      </select
+    ><br />
+    <br />
+    <div class="mb-3">
+      <label for="finishDistance" class="form-label">Finishing Distance From Hole</label>
+    <input type="number" class="form-control" min="0" max="600" name="finishDistance" value="0"/>
+    </div>
+    <label for="finishLie">Finishing Lie</label>
+    <select name="finishLie" id="finishLie">
+      <option value="t">Tee Shot</option>
+      <option value="f">Fairway</option>
+      <option value="r">Rough</option>
+      <option value="s">Sand</option>
+      <option value="g">Green</option>
+      <option value="h">Hole</option>
+      </select
+    >
+    <br>
+    <br>
+    <div class="mb-3">
+    <label for="baseline">Compare Against</label>
+    <select name="baseline" id="baseline">
+      <option value="pgaTour">Tour Player</option>
+      <option value="eighty">80 Shot Player</option>
+      <option value="ninety">90 Shot Player</option>
+      <option value="oneHundred">100 Shot Player</option>
+    </select>
+    </div>
+    <br />
+    <div class="container text-center">
+    <button type="submit" class="btn btn-primary">
+      Calculate
+    </button>
+    </div>
+  </form>
+</div>
+{%endblock%}
+

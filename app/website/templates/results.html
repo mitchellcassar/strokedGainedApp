@@ -1,0 +1,41 @@
+{%extends "base.html"%} {%block pageTitle%}Results{%endblock%} {%block
+pageBody%}
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <div class="container w-auto h-50 text-center p-4">
+        <h4>Number of Strokes Gained by this shot:</h4>
+      </div>
+      {%if dataToRender[0] > 0%}
+        <div class="container w-auto h-50 bg-success text-center text-white p-4">
+            <h1>{{dataToRender[0]}}</h1>
+        </div>
+      {%else%}
+      <div class="container h-50 w-auto bg-danger text-center text-white p-4">
+        <h1>{{dataToRender[0]}}</h1>
+    </div>
+      {%endif%}
+    </div>
+    <div class="col-md">
+    <div class="container w-auto h-50 text-center p-4">
+        <h4>Compared to a:</h4>
+    </div>
+      <div class="container w-auto h-50 text-center p-4">
+        <h1>{{dataToRender[1]}}</h1>
+      </div>
+    </div>
+    <div class="col-md">
+        <div class="container w-100 h-50 text-center p-4">
+            <h4>Shot Category:</h4>
+        </div>
+          <div class="container w-100 h-50 text-center p-4">
+            <h1>{{dataToRender[2]}}</h1>
+          </div>
+        </div>    
+</div>
+</div>
+<br>
+<div class="d-flex justify-content-center p-4">
+    <a class="btn btn-primary" href="/" role="button">Calculate another shot</a>
+</div>
+{%endblock%}
